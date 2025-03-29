@@ -1,0 +1,14 @@
+Card Type,Card Label,Movement Value,Number in Deck
+1,Next Planet,0,5
+2,Next Nebula,0,5
+3,Next Star,0,5
+4,Move Forward,5,10
+4,Move Forward,4,10
+4,Move Forward,3,15
+4,Move Forward,2,15
+4,Move Forward,1,10
+4,Move Back,-2,5
+4,Move Back,-1,5
+5,Miss a Turn,0,5
+6,Move to Closest Wormhole,0,5
+7,Previous Planet,0,5
