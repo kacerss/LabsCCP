@@ -86,5 +86,7 @@ public class Main {
             System.out.println(singleOccurrenceWords[i]);
         }
         // It's interesting to see that words like "message" occur only once.
+        // Also, apparently with further research, in the book Moby Dick 44% of words are considered Hapax Legomenon, which
+        // means they only appear once. https://en.wikipedia.org/wiki/Hapax_legomenon
     }
 }
