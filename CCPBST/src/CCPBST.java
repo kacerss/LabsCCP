@@ -3,8 +3,9 @@ public class CCPBST<T extends Comparable<T>>{
     int size;
 
     public Node add(Node root, T element){
-        if (this.size == 0){
-            return new Node(element);
+
+        if(root == null){
+            root = new Node(element);
             size++;
         }
         if (root.data == element){
@@ -16,22 +17,12 @@ public class CCPBST<T extends Comparable<T>>{
             size++;
         } else {
             root.right = add(root.right, element);
-            size++
+            size++;
         }
 
         return root;
-
     }
 
-    public Node traverse(Node root){
-        if (root.left != null){
-            traverse(root.left);
-        }
-        if (root.right != null){
-            traverse(root.right);
-        }
-        return root;
-    }
     public class Node{
         T data;
         Node right;
