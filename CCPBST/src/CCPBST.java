@@ -8,7 +8,7 @@ public class CCPBST<T extends Comparable<T>> {
             return new Node(element);
         }
 
-        // Use compareTo for equality check instead of '=='
+        // Use compareTo for equality check
         int cmp = element.compareTo(root.data);
         if (cmp == 0) {
             return root;
