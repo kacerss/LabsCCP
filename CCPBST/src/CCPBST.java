@@ -1,11 +1,13 @@
 public class CCPBST<T extends Comparable<T>> {
-    public Node root;
+    public Node<T> root;
     int size;
 
-    public Node add(Node root, T element) {
+    public Node<T> add(Node<T> root, T element) {
+
         if (root == null) {
             size++;
-            return new Node(element);
+            Node currRoot = new Node(element);
+            return currRoot;
         }
 
         // Use compareTo for equality check
@@ -23,10 +25,10 @@ public class CCPBST<T extends Comparable<T>> {
         return root;
     }
 
-    public class Node {
+    public class Node<T> {
         T data;
-        Node right;
-        Node left;
+        Node<T> right;
+        Node<T> left;
 
         public Node(T element) {
             this.data = element;
