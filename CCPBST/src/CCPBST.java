@@ -1,34 +1,33 @@
 public class CCPBST<T extends Comparable<T>> {
-    public Node<T> root;
+    public Node root;
     int size;
 
-    public Node<T> add(T element) {
-        root = add(root, element);
-        // Optionally, return the reference to the node where element was added.
-        return find(element);
-    }
-
-    private Node<T> add(Node<T> node, T element) {
-        if (node == null) {
+    public Node add(Node root, T element) {
+        if (root == null) {
             size++;
-            return new Node<>(element);
+            return new Node(element);
         }
-        int cmp = element.compareTo(node.data);
+
+        // Use compareTo for equality check
+        int cmp = element.compareTo(root.data);
+
         if (cmp == 0) {
-            return node; // Duplicate, do not add.
-        } else if (cmp < 0) {
-            node.left = add(node.left, element);
-        } else {
-            node.right = add(node.right, element);
+            return root;
         }
-        return node;
+
+        if (cmp < 0) {
+            root.left = add(root.left, element);
+        } else {
+            root.right = add(root.right, element);
+        }
+
+        return root;
     }
 
-
-    public class Node<T> {
+    public class Node {
         T data;
-        Node<T> right;
-        Node<T> left;
+        Node right;
+        Node left;
 
         public Node(T element) {
             this.data = element;
