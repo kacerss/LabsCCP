@@ -1,34 +1,34 @@
-public class CCPBST<T extends Comparable<T>>{
+public class CCPBST<T extends Comparable<T>> {
     public Node root;
     int size;
 
-    public Node add(Node root, T element){
-
-        if(root == null){
-            root = new Node(element);
+    public Node add(Node root, T element) {
+        if (root == null) {
             size++;
+            return new Node(element);
         }
-        if (root.data == element){
+
+        // Use compareTo for equality check instead of '=='
+        int cmp = element.compareTo(root.data);
+        if (cmp == 0) {
             return root;
         }
 
-        if (element.compareTo(root.data) < 0){
+        if (cmp < 0) {
             root.left = add(root.left, element);
-            size++;
         } else {
             root.right = add(root.right, element);
-            size++;
         }
 
         return root;
     }
 
-    public class Node{
+    public class Node {
         T data;
         Node right;
         Node left;
 
-        public Node(T element){
+        public Node(T element) {
             this.data = element;
             right = null;
             left = null;
