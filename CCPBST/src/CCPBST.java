@@ -12,6 +12,7 @@ public class CCPBST<T extends Comparable<T>>{
                 curr.right.data = element;
             }
         }
+        return root;
 
 
     }
