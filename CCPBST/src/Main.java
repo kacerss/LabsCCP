@@ -20,6 +20,20 @@ public class Main {
         System.out.println("Tree Depth: " + string.depth());
         System.out.println("Tree Size: " + string.size());
 
+        PokerCard[] cards = PokerCard.makeDeck();
+        Deck<PokerCard> deck = new Deck<>(cards);
+
+        CCPBST<PokerCard> finalDeck = new CCPBST<>();
+        for (PokerCard card : cards) {
+            finalDeck.add(card);
+        }
+
+        finalDeck.inOrder();
+        System.out.println();
+        finalDeck.postOrder();
+        System.out.println();
+        System.out.println("Tree Depth: " + finalDeck.depth());
+        System.out.println("Tree Size: " + finalDeck.size());
 
     }
 }
