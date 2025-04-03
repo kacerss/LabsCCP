@@ -21,8 +21,6 @@ public class Main {
         System.out.println("Tree Size: " + string.size());
 
         PokerCard[] cards = PokerCard.makeDeck();
-        Deck<PokerCard> deck = new Deck<>(cards);
-
         CCPBST<PokerCard> finalDeck = new CCPBST<>();
         for (PokerCard card : cards) {
             finalDeck.add(card);
