@@ -29,7 +29,7 @@ public class CCPBST<T extends Comparable<T>> {
         return find(root, element);
     }
 
-    public Node<T> find(Node<T> node, T element) {
+    private Node<T> find(Node<T> node, T element) {
         if (node == null) {
             return null;
         }
@@ -44,6 +44,59 @@ public class CCPBST<T extends Comparable<T>> {
             return find(node.right, element);
         }
 
+    }
+
+    public int depth() {
+        return depth(root);
+    }
+
+    private int depth(Node<T> node) {
+        if (node == null) {
+            return 0;
+        }
+        //Add 1 to account for root, and look for higher depth between right and left
+        return 1 + Math.max(depth(node.left), depth(node.right));
+    }
+
+    public int size() {
+        return size;
+    }
+
+    public void preOrder() {
+        preOrder(root);
+    }
+
+    private void preOrder(Node<T> node) {
+        if (node == null) {
+            return;
+        }
+        System.out.print(node.data + " ");
+        preOrder(node.left);
+        preOrder(node.right);
+    }
+
+    public void inOrder() {
+        inOrder(root);
+    }
+
+    private void inOrder(Node<T> node) {
+        if (node == null) {
+            return;
+        }
+        inOrder(node.left);
+        System.out.print(node.data + " ");
+        inOrder(node.right);
+    }
+
+    public void postOrder() {
+        postOrder(root);
+    }
+
+    private void postOrder(Node<T> node) {
+        if (node == null) {return;}
+        postOrder(node.left);
+        postOrder(node.right);
+        System.out.print(node.data + " ");
     }
 
     private static class Node<T> {
