@@ -1,3 +1,5 @@
+import java.util.Random;
+
 public class Main {
     public static void main(String[] args) {
         CCPBST<Integer> integer = new CCPBST<>();
@@ -9,6 +11,7 @@ public class Main {
         System.out.println();
         System.out.println("Tree Depth: " + integer.depth());
         System.out.println("Tree Size: " + integer.size());
+        System.out.println("-----------------------");
 
         CCPBST<String> string = new CCPBST<>();
         String[] names = {"Mary", "John", "Jane", "Bob", "May", "Jack", "Juan", "Lucas", "Peter", "Tiana"};
@@ -19,19 +22,27 @@ public class Main {
         System.out.println();
         System.out.println("Tree Depth: " + string.depth());
         System.out.println("Tree Size: " + string.size());
+        System.out.println("-------------------------");
 
         PokerCard[] cards = PokerCard.makeDeck();
+        PokerCard.shuffleCards(cards);
         CCPBST<PokerCard> finalDeck = new CCPBST<>();
-        for (PokerCard card : cards) {
-            finalDeck.add(card);
+
+
+        for (int i = 0; i < 13; i++){
+            finalDeck.add(cards[i + 1]);
         }
 
+        finalDeck.preOrder();
+        System.out.println();
         finalDeck.inOrder();
         System.out.println();
         finalDeck.postOrder();
         System.out.println();
         System.out.println("Tree Depth: " + finalDeck.depth());
         System.out.println("Tree Size: " + finalDeck.size());
+
+
 
     }
 }

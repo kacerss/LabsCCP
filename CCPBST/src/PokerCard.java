@@ -1,3 +1,5 @@
+import java.util.Random;
+
 public class PokerCard implements Comparable<PokerCard> {
     private String suit;
     private int value;
@@ -67,5 +69,18 @@ public class PokerCard implements Comparable<PokerCard> {
             }
         }
         return cards;
+    }
+
+    public static void shuffleCards(PokerCard[] cards){
+        Random rand = new Random();
+        // Loop from the end of the array down to the second element
+        for (int i = cards.length - 1; i > 0; i--){
+            // Generate a random index j between 0 and i
+            int j = rand.nextInt(i + 1);
+            // Swap cards[i] with cards [j]
+            PokerCard temp = cards[i];
+            cards[i] = cards[j];
+            cards[j] = temp;
+        }
     }
 }
