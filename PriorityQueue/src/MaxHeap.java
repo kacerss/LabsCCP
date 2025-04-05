@@ -40,20 +40,24 @@ public class MaxHeap<T extends Comparable<T>> {
 
     // recursive method to max heapify given a position or subtree.
     private void maxHeapify(int position) {
+        //check if the position is a leaf, if true return.
         if (isLeaf(position)) {
             return;
         }
-        if (heap[position].compareTo(heap[leftChild(position)]) < 0
-        || heap[position].compareTo(heap[rightChild(position)]) < 0) {
 
-            if (heap[leftChild(position)].compareTo(heap[rightChild(position)]) > 0) {
-                swap(position, leftChild(position));
-                maxHeapify(leftChild(position));
-            } else {
-                swap(position, rightChild(position));
-                maxHeapify(rightChild(position));
-            }
-
+        // Assume the node at position is already the largest.
+        int largest = position;
+        // Check if leftChild or rightChild are bigger than the current position.
+        if (leftChild(position) < size && heap[leftChild(position)].compareTo(heap[largest]) > 0) {
+            largest = leftChild(position);
+        }
+        if (rightChild(position) < size && heap[rightChild(position)].compareTo(heap[largest]) > 0) {
+            largest = rightChild(position);
+        }
+        // If largest isn't the given position anymore, swap it with the new largest and recursively call the method.
+        if (largest != position) {
+            swap(position, largest);
+            maxHeapify(largest);
         }
     }
 

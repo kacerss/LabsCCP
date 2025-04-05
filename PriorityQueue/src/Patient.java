@@ -1,12 +1,11 @@
 public class Patient implements Comparable<Patient> {
-    private String name;
-    private String condition;
+    private final String name;
+    private final String condition;
     private int priority;
 
     Patient(String patientsName, String condition){
         this.name = patientsName;
         this.condition = condition;
-        this.priority = priority;
     }
 
     Patient(String patientsName, String condition, int priority){
