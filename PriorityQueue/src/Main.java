@@ -34,6 +34,7 @@ public class Main {
                         var priority = conditions.get(condition); // get condition's priority
                         // default priority if no priority is found
                         if (priority == 0) {
+                            System.out.println("Unknown condition.. therefore assigned default priority of 1.");
                             priority = 1;
                         }
                         Patient patient = new Patient(name, condition, priority); // create patient w the information collected.
