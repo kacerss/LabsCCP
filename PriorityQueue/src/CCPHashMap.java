@@ -62,7 +62,7 @@ public class CCPHashMap {
 
 
         // Traverse the linked list.
-        while (curr != null ){
+        while (curr.next != null ){
             if (curr.key.equals(key)) {
                 // Key exists, update value.
                 int oldValue = curr.value;
