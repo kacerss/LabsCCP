@@ -59,7 +59,7 @@ public class CCPHashMap {
         }
 
         Node curr = store[index];
-        Node prev = null;
+
 
         // Traverse the linked list.
         while (curr != null ){
@@ -69,18 +69,19 @@ public class CCPHashMap {
                 curr.value = value;
                 return oldValue;
             }
-            prev = curr;
             curr = curr.next;
         }
-
+        if (curr.key.equals(key)) {
+            int oldValue = curr.value;
+            curr.value = value;
+            return oldValue;
+        }
         // Key not found, insert a new node at the end.
-        assert prev != null;
-        prev.next = new Node(key, value);
+        curr.next = new Node(key, value);
         size++;
         if (load() > 1){
             resize();
         }
-
         return 0;
     }
 
